@@ -21,21 +21,17 @@ class DeepCluster:
             alexnet = AlexNet(input_shape=self.input_shape, num_classes=self.num_classes)
             self.feature_extractor = alexnet.feature_extractor
             self.classifier = alexnet.classifier
-            # Compile classifier
-        self.classifier.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy']) 
-
         elif model_name == 'vgg16':
             vgg16 = VGG16(input_shape=self.input_shape, num_classes=self.num_classes)
             self.feature_extractor = vgg16.feature_extractor
             self.classifier = vgg16.classifier
-            # Compile classifier
-        self.classifier.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
         else:
             raise ValueError(f"model_name must be 'alexnet' or 'vgg16'. Got {model_name}")
 
-        
-        
+        # Compile classifier
+        if self.classifier:
+            
+        self.classifier.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
         
 
     def load_data(self, image_limit):

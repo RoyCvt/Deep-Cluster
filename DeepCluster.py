@@ -28,9 +28,13 @@ class DeepCluster:
         else:
             raise ValueError(f"model_name must be 'alexnet' or 'vgg16'. Got {model_name}")
 
-        # Optimizer for training the final classifier (optional for this example)
-        self.classifier_optimizer = Adam()
+        
+        # Compile classifier
+        self.classifier.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
+   
 
+
+        
 
     def load_data(self, image_limit):
         """

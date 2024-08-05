@@ -26,16 +26,13 @@ class AlexNet:
 
         # Create the full model
         self.model = Model(inputs=input1, outputs=[output1, output2])
-        self.model.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
+        
         # Create the feature extraction model
         self.feature_extractor = Model(inputs=input1, outputs=output1)
-        self.feature_extractor.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
+        
         # Create the classification model
         self.classifier = Model(inputs=input1, outputs=output2)
-        self.classifier.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
+       
 
 class VGG16:
     def __init__(self, input_shape=(224, 224, 1), num_classes=1000):
@@ -72,13 +69,10 @@ class VGG16:
         
         # Create the full model
         self.model = Model(inputs=input1, outputs=[output1, output2])
-        self.model.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
+        
         # Create the feature extraction model
         self.feature_extractor = Model(inputs=input1, outputs=output1)
-        self.feature_extractor.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
+        
         # Create the classification model
         self.classifier = Model(inputs=input1, outputs=output2)
-        self.classifier.compile(loss=tf.losses.sparse_categorical_crossentropy, optimizer='adam', metrics=['accuracy'])
-
+        

@@ -1,0 +1,9 @@
+Steps:
+1) Augmentation performed on images
+2) images sent to AlexNet for feature extraction
+3) PCA performed on feature vectors to reduce dimensions
+3.2) L2 normalization also performed on feature vectors
+4) processed features passed to k-means to get cluster assignment for each image
+5) cluster assignments used as pseudo labels for the AlexNet Classifier.
+* Classification performed with cross-entropy loss.
+6) model is trained for 500 epochs with the clustering happening only once per epoch.
